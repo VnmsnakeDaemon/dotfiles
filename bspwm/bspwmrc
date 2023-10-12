@@ -1,0 +1,18 @@
+#! /bin/bash
+pgrep -x sxhkd > /dev/null || sxhkd &
+picom -b &
+killall -q polybar
+/home/vnmsnake/.config/polybar/forest/launch.sh
+/home/vnmsnake/.config/polybar/cuts/launch.sh
+bspc monitor 0x0020000A -d I II III IV
+bspc monitor 0x0020000C -d V VI VII
+xrandr --output DP-1 --mode  1366x768 --rate 60.00 --output VGA1 
+xrandr --output HDMI-1 --primary  --mode 1366x768 --rate 60.00 --left-of DP-1
+feh --bg-fill -z ~/Desktop/*
+bspc config border_width         2
+bspc config window_gap          12
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
